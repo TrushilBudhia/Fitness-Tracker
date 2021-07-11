@@ -1,10 +1,26 @@
 const router = require("express").Router();
-const db = require("../models");
+const Workout = require("../models/workout.js");
+const path = require("path");
 
+// HTML
+router.get("/", (request, response) => {
+  response.sendFile(path.join(__dirname, "../public/index.html"));
+});
+
+router.get("/exercise", (request, response) => {
+  response.sendFile(path.join(__dirname, "../public/exercise.html"));
+});
+
+router.get("/stats", (request, response) => {
+  response.sendFile(path.join(__dirname, "../public/stats.html"));
+});
+
+
+// JavaScript
 // Create new workout plan
 router.post("/api/workouts", async ({ body }, response) => {
     try {
-        const addWorkout = await db.Workout.create(body);
+        const addWorkout = await Workout.create(body);
         response.json(addWorkout);
       } catch (err) {
         console.log(err);
@@ -15,7 +31,7 @@ router.post("/api/workouts", async ({ body }, response) => {
 // Update workout plan
 router.put("/api/workouts/:id", async (request, response) => {
     try {
-        const updateWorkoutPlan = await db.Workout.findByIdAndUpdate(request.params.id, { $push: { exercises: request.body } }, { new: true, runValidators: true });
+        const updateWorkoutPlan = await Workout.findByIdAndUpdate(request.params.id, { $push: { exercises: request.body } }, { new: true, runValidators: true });
         response.json(updateWorkoutPlan);
       } catch (err) {
         console.log(err);
@@ -26,7 +42,7 @@ router.put("/api/workouts/:id", async (request, response) => {
 // Finding the past workouts with a limit
 router.get("/api/workouts/past-workouts", async (request, response) => {
     try {
-        const findSevenPastWorkout = await db.Workout.find({}).limit(7);
+        const findSevenPastWorkout = await Workout.find({}).limit(7);
         response.json(findSevenPastWorkout);
       } catch (err) {
         console.log(err);
@@ -37,7 +53,7 @@ router.get("/api/workouts/past-workouts", async (request, response) => {
 // Finding the workouts
 router.get("/api/workouts", async (request, response) => {
     try {
-        const findPastWorkout = await db.Workout.find({});
+        const findPastWorkout = await Workout.find({});
         response.json(findPastWorkout);
       } catch (err) {
         console.log(err);
