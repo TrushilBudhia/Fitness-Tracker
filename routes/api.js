@@ -47,7 +47,6 @@ router.get("/api/workouts", async (request, response) => {
         },
       },
     ]);
-    console.log('findPastWorkout', findPastWorkout);
     response.json(findPastWorkout);
   } catch (err) {
     console.log(err);
@@ -72,7 +71,6 @@ router.get("/api/workouts/range", async (request, response) => {
       },
     ])
       .limit(7);
-    console.log('findSevenPastWorkout', findSevenPastWorkout);
     response.json(findSevenPastWorkout);
   } catch (err) {
     console.log(err);
