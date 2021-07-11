@@ -13,7 +13,7 @@
 
 An application where you can view, create and track daily workouts. 
 
-You can log multiple exercises in a workout on a given day. Tha application allows you to track the name, type, weight, sets, reps, and duration of exercise
+You can log multiple exercises in a workout on a given day. The application allows you to track the name, type, weight, sets, reps, and duration of the exercise.
 
 The application uses the Mongo database with a Mongoose schema and handles routes with Express.
 
