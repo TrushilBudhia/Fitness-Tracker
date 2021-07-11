@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Connecting to MongoDB using Mongoose
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout_DB", {
   useNewUrlParser: true,
   useCreateIndex: true,
   useUnifiedTopology: true,
