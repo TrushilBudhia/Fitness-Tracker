@@ -44,6 +44,8 @@ npm start
 ```
 
 ## Assets
+Live demo of the application hosted on Heroku: [Fitness Tracker](https://fitness-tracker-plus.herokuapp.com/)
+
 The following images shows the functionality of the application: 
 
 Adding an exercise:
